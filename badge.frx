@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Name="ISDEF Bages" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="ISDEF Bages" ReportInfo.Created="09/24/2013 03:39:05" ReportInfo.Modified="06/15/2017 15:49:07" ReportInfo.CreatorVersion="2017.3.2.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+    private void Text3_BeforePrint(object sender, EventArgs e)
+    {
+    }
+
+    private void Barcode1_BeforePrint(object sender, EventArgs e)
+    {
+    }
+
+    private void Text1_BeforePrint(object sender, EventArgs e)
+    {
+    }
+
+    private void Text4_BeforePrint(object sender, EventArgs e)
+    {
+    }
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <XmlDataConnection Name="Connection" ConnectionString="rijcmlqmmfdjkQxfe1iwShBNGpudzkoKTNWifHivDgZEeK4y+4=">
+      <TableDataSource Name="Members" DataType="System.Int32" Enabled="true" TableName="Members">
+        <Column Name="id" DataType="System.String"/>
+        <Column Name="firstname_rus" DataType="System.String"/>
+        <Column Name="firstname_eng" DataType="System.String"/>
+        <Column Name="lastname_rus" DataType="System.String"/>
+        <Column Name="lastname_eng" DataType="System.String"/>
+        <Column Name="country" DataType="System.String"/>
+        <Column Name="city" DataType="System.String"/>
+        <Column Name="company" DataType="System.String"/>
+        <Column Name="mail" DataType="System.String"/>
+      </TableDataSource>
+    </XmlDataConnection>
+    <MsAccessDataConnection Name="Connection1" ConnectionString="rijcmlqoDWEBRlB24atBGpA/h9/NbwdWKfjN0xexwR499WDO0ziEMnMM0bTobUAp1tZ92tSSRXyi0czcG957RHyqSpS4ddmuEtR60dRIuqUyBSbfIM=">
+      <TableDataSource Name="Badges" DataType="System.Int32" Enabled="true" TableName="Badges">
+        <Column Name="Number" DataType="System.Int32"/>
+        <Column Name="GroupName" DataType="System.String"/>
+        <Column Name="TopPicture" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="LeftPicture" DataType="System.Byte[]" BindableControl="Picture"/>
+        <Column Name="Color" DataType="System.Int32"/>
+      </TableDataSource>
+    </MsAccessDataConnection>
+    <Relation Name="Badges_Members" ReferenceName="Data.Badges_Members" ParentDataSource="null" ChildDataSource="null" ParentColumns="Number" ChildColumns="Badge" Enabled="true"/>
+    <Parameter Name="Number" DataType="System.Int32" Description="Number"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" RightMargin="5" Columns.Count="2" Columns.Width="100" Columns.Positions="0,100">
+    <DataBand Name="Data1" Width="378" Height="321.6" DataSource="Members">
+      <PictureObject Name="BackPicture" Width="378" Height="321.3" DataColumn="Badges.TopPicture"/>
+      <BarcodeObject Name="Barcode1" Left="268.5" Top="214.8" Width="106.97" Height="106.8" ShiftMode="Never" BeforePrintEvent="Barcode1_BeforePrint" AutoSize="false" Text="BEGIN:VCARD&#10;VERSION:2.1&#10;FN:[Members.firstname_eng] [Members.lastname_eng]&#10;N:[Members.lastname_eng];[Members.firstname_eng]&#10;ORG:[Members.company]&#10;EMAIL;WORK;INTERNET:[Members.mail]&#10;ADR:;;;;;;[Members.country]&#10;END:VCARD" ShowText="false" Zoom="0.5" AllowExpressions="true" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+      <TextObject Name="Text2" Left="9.45" Top="151.2" Width="330.75" Height="34.02" Text="[Members.lastname_eng][Members.firstname_eng]" Font="Arial Narrow, 22pt, style=Bold"/>
+      <TextObject Name="Text1" Left="9.45" Top="185.27" Width="330.75" Height="34.02" CanGrow="true" GrowToBottom="true" BeforePrintEvent="Text1_BeforePrint" Text="[Members.lastname_rus][Members.firstname_rus]" Font="Arial Narrow, 22pt, style=Bold"/>
+      <TextObject Name="Text3" Left="10" Top="285.53" Width="226.8" Height="31.04" ShiftMode="Never" BeforePrintEvent="Text3_BeforePrint" CanBreak="false" Text="[Members.mail]" WordWrap="false" Font="Arial Narrow, 18pt, style=Bold"/>
+      <TextObject Name="Text4" Left="11.45" Top="218.36" Width="240.85" Height="52.92" BeforePrintEvent="Text4_BeforePrint" Text="[Members.company]" Font="Arial Narrow, 18pt, style=Bold" TextFill.Color="Silver"/>
+      <LineObject Name="Line1" Height="321.3"/>
+      <LineObject Name="Line2" Left="378" Height="321.3"/>
+      <LineObject Name="Line3" Width="378"/>
+      <LineObject Name="Line4" Top="321.3" Width="378" ShiftMode="Never"/>
+    </DataBand>
+  </ReportPage>
+</Report>

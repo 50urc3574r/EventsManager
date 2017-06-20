@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Name="Badges" ReportInfo.Author="Fast Reports Inc" ReportInfo.Description="Badges" ReportInfo.Created="09/24/2013 03:39:05" ReportInfo.Modified="06/10/2017 18:23:34" ReportInfo.CreatorVersion="2017.3.2.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+    private void Text3_BeforePrint(object sender, EventArgs e)
+    {
+    }
+
+    private void Barcode1_BeforePrint(object sender, EventArgs e)
+    {
+    }
+
+    private void Text1_BeforePrint(object sender, EventArgs e)
+    {
+    }
+
+    private void Text4_BeforePrint(object sender, EventArgs e)
+    {
+    }
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+      
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <XmlDataConnection Name="Connection" ConnectionString="rijcmlqmmfdjkQxfe1iwShBNGpud9RbhqqGVo//BTAfvKio3Tvz2/Zzde1Pi6u7dGZJW/2updl5369V+G2NmrlRAihz3t3nexrP7PESafdK7E2ErUa/jryh5OSoYiksKJHX21DZAaZ4gasi/JhF5Y3IDgeMxtsWuKh9uQhdLOqMFu3bws8E9PkgaiS/PHCoE9KWE548">
+      <TableDataSource Name="Members" DataType="System.Int32" Enabled="true" TableName="Members">
+        <Column Name="id" DataType="System.String"/>
+        <Column Name="firstname_rus" DataType="System.String"/>
+        <Column Name="firstname_eng" DataType="System.String"/>
+        <Column Name="lastname_rus" DataType="System.String"/>
+        <Column Name="lastname_eng" DataType="System.String"/>
+        <Column Name="country" DataType="System.String"/>
+        <Column Name="city" DataType="System.String"/>
+        <Column Name="company" DataType="System.String"/>
+        <Column Name="mail" DataType="System.String"/>
+      </TableDataSource>
+    </XmlDataConnection>
+    <Relation Name="Badges_Members" ReferenceName="Data.Badges_Members" ParentDataSource="null" ChildDataSource="null" ParentColumns="Number" ChildColumns="Badge" Enabled="true"/>
+    <Parameter Name="Number" DataType="System.Int32" Description="Number"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" RightMargin="5" Columns.Count="2" Columns.Width="100" Columns.Positions="0,100">
+    <DataBand Name="Data1" Width="378" Height="194.67" DataSource="Members">
+      <ShapeObject Name="Shape1" Width="374.22" Height="192.78"/>
+      <BarcodeObject Name="Barcode1" Left="264.72" Top="82.5" Width="106.97" Height="106.8" ShiftMode="Never" BeforePrintEvent="Barcode1_BeforePrint" AutoSize="false" Text="BEGIN:VCARD&#10;VERSION:2.1&#10;FN:[Members.firstname_eng] [Members.lastname_eng]&#10;N:[Members.lastname_eng];[Members.firstname_eng]&#10;ORG:[Members.company]&#10;EMAIL;WORK;INTERNET:[Members.mail]&#10;ADR:;;;;;;[Members.country]&#10;END:VCARD" ShowText="false" Zoom="0.5" AllowExpressions="true" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+      <TextObject Name="Text2" Left="3.78" Top="3.78" Width="330.75" Height="34.02" Text="[Members.lastname_eng] [Members.firstname_eng]" Font="Arial Narrow, 22pt, style=Bold"/>
+      <TextObject Name="Text1" Left="3.78" Top="37.85" Width="330.75" Height="34.02" CanGrow="true" GrowToBottom="true" BeforePrintEvent="Text1_BeforePrint" Text="[Members.lastname_rus] [Members.firstname_rus]" Font="Arial Narrow, 22pt, style=Bold"/>
+      <TextObject Name="Text3" Left="4.33" Top="155.12" Width="253.26" Height="31.04" ShiftMode="Never" BeforePrintEvent="Text3_BeforePrint" CanBreak="false" Text="[Members.mail]" WordWrap="false" Font="Arial Narrow, 18pt, style=Bold"/>
+      <TextObject Name="Text4" Left="3.89" Top="121.97" Width="240.85" Height="28.35" BeforePrintEvent="Text4_BeforePrint" Text="[Members.company]" Font="Arial Narrow, 18pt, style=Bold" TextFill.Color="Silver"/>
+    </DataBand>
+  </ReportPage>
+</Report>

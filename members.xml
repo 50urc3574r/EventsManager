@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ArrayOfMembers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Members>
+    <id>145</id>
+    <firstname_rus>Руслан</firstname_rus>
+    <firstname_eng>Ruslan</firstname_eng>
+    <lastname_rus>Абдуллоев</lastname_rus>
+    <lastname_eng>Abdulloev</lastname_eng>
+    <country>Россия</country>
+    <city>Ростов</city>
+    <company>FastReport</company>
+    <mail>enterenous@gmail.com</mail>
+  </Members>
+  <Members>
+    <id>164</id>
+    <firstname_rus>Наталья</firstname_rus>
+    <firstname_eng>Natalya</firstname_eng>
+    <lastname_rus>Аверкова</lastname_rus>
+    <lastname_eng>Averkova</lastname_eng>
+    <country>Россия</country>
+    <city>Ростов-на-Дону</city>
+    <company>РКСИ</company>
+    <mail>cynopterussphinx@gmail.com</mail>
+  </Members>
+</ArrayOfMembers>
